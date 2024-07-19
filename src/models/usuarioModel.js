@@ -1,11 +1,12 @@
 const db = require("./db");
 async function registrarUsuario(nick){
-    return await db.insertOne("usuario",{"nick": nick});
+    return await db.insertOne("usuarios",{"nick": nick});
 
 }
 
 let buscarUsuario = async (idUser)=>{
-    let user = await db.findOne("usuarios",idUser);
+    let user = await db.findOne("usuario",idUser);
+    //  console.log(user)
     return user;
 }
   

@@ -49,8 +49,8 @@ app.use("/sala/entrar", router.put("/sala/entrar", async (req, res)=>{
     const token = require("./util/token");
     const salaController = require("./controllers/salaController");
     if(token.checkToken(req.headers.token,req.headers.iduser,req.headers.nick)){
-        let res = await salaController.entrar(req.headers.iduser, req.query.idSala);
-        res.status(200).send(res);
+        let resp = await salaController.entrar(req.headers.iduser, req.query.idSala);
+        res.status(200).send(resp);
     }else{
         res.status(401).send({msg:"Usuário não autorizado"});
     }
