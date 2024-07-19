@@ -19,14 +19,10 @@ let findAll = async (collection)=>{
     return await db.collection(collection).find().toArray();
 }  
 
-module.exports = {findAll};
-
 async function insertOne(collection, objeto){
     const db = await connect();
     return db.collection(collection).insertOne(objeto);
 }
-
-module.exports = {insertOne};
 
 let findOne = async (collection, _id)=>{
     const db = await connect();
@@ -42,4 +38,4 @@ let updateOne= async (collection, object, param)=>{
     return result;
 }
 
-module.exports = {findOne, updateOne};
+module.exports = {findAll, insertOne, findOne, updateOne};
